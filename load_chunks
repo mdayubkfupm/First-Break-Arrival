@@ -1,0 +1,12 @@
+#loading the train and test chucks
+import pandas as pd
+train_lst=['trainset_prefb.csv','trainset_prefb1.csv','trainset_prefb2.csv','trainset_prefb3.csv','trainset_prefb4.csv']
+df=pd.DataFrame()
+for item in train_lst:
+  print(item)
+  df_chunk=pd.read_csv(item)
+  df_chunk=df_chunk.drop(['Unnamed: 0'],axis=1)
+  df=df.append(df_chunk,ignore_index=True)
+#removing Unnamed: 0 column
+#df_train=df_train.drop(['Unnamed: 0'],axis=1)
+print("Shape of combined chunks",df.shape)
